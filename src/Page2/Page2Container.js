@@ -1,7 +1,9 @@
 import React from 'react';
 
+import style from 'scss/Page1.scss';
+
 const Page2Container = () => (
-  <div>
+  <div className={style.content}>
     Page2
   </div>
 );

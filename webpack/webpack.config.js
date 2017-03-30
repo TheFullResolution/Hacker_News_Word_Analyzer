@@ -67,6 +67,16 @@ module.exports = {
           'style-loader',
           'css-loader?modules',
           {
+            loader: 'postcss-loader',
+            options: {
+              plugins: function() {
+                return [
+                  require('autoprefixer')({ browsers: 'last 2 versions' })
+                ];
+              }
+            }
+          },
+          {
             loader: 'sass-loader'
           }
         ]

@@ -9,8 +9,8 @@ const Header = () => (
       <h1>Hacker News Word Analyzer</h1>
     </div>
     <nav className={style.navigation}>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/analyzer">Analyzer</NavLink>
+      <NavLink exact activeClassName="active" to="/">Home</NavLink>
+      <NavLink exact activeClassName="active" to="/analyzer">Analyzer</NavLink>
     </nav>
   </header>
 );

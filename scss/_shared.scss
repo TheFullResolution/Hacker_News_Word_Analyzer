@@ -1,0 +1,10 @@
+.commonContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  @media (max-width: 425px) {
+      padding: 5px;
+  }
+}

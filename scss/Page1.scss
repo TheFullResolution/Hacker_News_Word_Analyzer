@@ -1,3 +1,10 @@
+@import "shared";
+
 .content {
-  composes: content from "./global.scss";
+    composes: commonContent;
+    text-align: center;
+    img {
+      width: 100%;
+      max-width: 800px;
+    }
 }
