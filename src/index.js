@@ -1,26 +1,21 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { HashRouter, Route } from 'react-router-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import 'scss/global.scss';
 
 import Header from 'Common/Header';
-import Page1 from 'Page1/Page1';
+import Page1Content from 'Page1/Page1Content';
+import Page2Container from 'Page2/Page2Container';
 
 export const Root = () => (
   <HashRouter>
     <div>
       <Header />
-      <ReactCSSTransitionGroup
-        component="div"
-        transitionName="example"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}
-        className="content"
-      >
-        <Route path="/" component={Page1} />
-      </ReactCSSTransitionGroup>
+
+        <Route exact path="/" component={Page1Content} />
+        <Route path="/analyzer" component={Page2Container} />
+
     </div>
 
   </HashRouter>

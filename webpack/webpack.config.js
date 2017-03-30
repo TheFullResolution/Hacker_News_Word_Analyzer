@@ -56,20 +56,7 @@ module.exports = {
         test: /\.js$/,
         use: [
           {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  'es2015',
-                  {
-                    modules: false
-                  }
-                ],
-                'stage-0',
-                'react'
-              ],
-              plugins: ['react-hot-loader/babel']
-            }
+            loader: 'babel-loader'
           }
         ],
         exclude: /node_modules/
@@ -79,16 +66,6 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader?modules',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function() {
-                return [
-                  require('autoprefixer')({ browsers: 'last 2 versions' })
-                ];
-              }
-            }
-          },
           {
             loader: 'sass-loader'
           }

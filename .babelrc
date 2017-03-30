@@ -1,0 +1,27 @@
+{
+    "presets": [
+        [
+            "es2015",
+            {
+                "modules": false
+            }
+        ], "react"
+    ],
+    "plugins": ["react-hot-loader/babel"],
+    "env": {
+        "production": {
+            "presets": ["babili", [
+                "env",
+                {
+                    "targets": {
+                        "browsers": ["last 2 versions", "IE >= 11"]
+                    }
+                }
+            ]],
+            "plugins": [
+                "transform-react-remove-prop-types",
+                "transform-react-inline-elements"
+            ]
+        }
+    }
+}

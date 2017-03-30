@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const BabiliPlugin = require('babili-webpack-plugin');
 module.exports = {
   entry: {
     main: resolve(__dirname, '../src'),
@@ -22,32 +22,7 @@ module.exports = {
         test: /\.(jsx|js)$/,
         use: [
           {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  'es2015',
-                  {
-                    modules: false,
-                    'loose': true
-                  }
-                ],
-                'react',
-                [
-                  'env',
-                  {
-                    targets: {
-                      browsers: ['last 2 versions', 'IE >= 11']
-                    }
-                  }
-                ],
-                'babili'
-              ],
-              plugins: [
-                'transform-react-remove-prop-types',
-                'transform-react-inline-elements'
-              ]
-            }
+            loader: 'babel-loader'
           }
         ],
         exclude: /node_modules/
@@ -89,15 +64,11 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
+        NODE_ENV: JSON.stringify('production'),
+        BABEL_ENV: JSON.stringify('production')
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    }),
     new webpack.NamedModulesPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor']
@@ -114,11 +85,12 @@ module.exports = {
         }
       }
     }),
+    new BabiliPlugin(),
     new ExtractTextPlugin('app.css')
   ],
-
+ devtool: false,
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx'],
     alias: {
       Common: resolve(__dirname, '../src/Common/'),
       Page1: resolve(__dirname, '../src/Page1/'),

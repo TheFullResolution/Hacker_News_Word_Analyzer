@@ -1,9 +1,11 @@
-@import "variables.scss";
+@import "variables";
 
 .header {
-  font-family: Verdana, Geneva, sans-serif;
   background-color: $grey;
-  padding: 10px;
+  padding: {
+    top: 10px;
+  }
+  margin-bottom: 20px;
 }
 
 .flex {
@@ -15,16 +17,35 @@
 .heading {
   composes: flex;
   h1 {
-    font-size: 25px;
+    font-size: 22px;
     margin: 0;
+    font-weight: normal;
   }
   img {
-    max-width: 50px;
+    max-width: 30px;
     margin-right: 10px;
   }
+  padding: 10px;
+  @media (max-width: 425px) {
+    h1 {
+      font-size: 18px;
+    }
+  }
+
 }
 
 .navigation {
     composes: flex;
+    background-color: $orange;
+    padding: 5px;
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+      font-weight: bold;
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
 
 }
