@@ -1,0 +1,30 @@
+@import "variables.scss";
+
+.header {
+  font-family: Verdana, Geneva, sans-serif;
+  background-color: $grey;
+  padding: 10px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  composes: flex;
+  h1 {
+    font-size: 25px;
+    margin: 0;
+  }
+  img {
+    max-width: 50px;
+    margin-right: 10px;
+  }
+}
+
+.navigation {
+    composes: flex;
+
+}
