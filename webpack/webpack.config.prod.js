@@ -68,8 +68,6 @@ module.exports = {
         BABEL_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.NamedModulesPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor']
     }),

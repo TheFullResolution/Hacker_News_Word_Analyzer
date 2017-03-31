@@ -1,0 +1,15 @@
+@import "../variables";
+
+.dropdown {
+    border: 1px solid black;
+    background: $grey;
+    max-width: 280px;
+    margin: 20px auto;
+    select {
+        font-family: 'Raleway', sans-serif;
+        padding: 5px 8px;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+}

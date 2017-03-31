@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'scss/Header.scss';
+import style from 'scss/components/Header.scss';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => (
@@ -9,8 +9,8 @@ const Header = () => (
       <h1>Hacker News Word Analyzer</h1>
     </div>
     <nav className={style.navigation}>
-      <NavLink exact activeClassName="active" to="/">Home</NavLink>
-      <NavLink exact activeClassName="active" to="/analyzer">Analyzer</NavLink>
+      <NavLink exact activeClassName="active" className="button" to="/">Home</NavLink>
+      <NavLink exact activeClassName="active" className="button" to="/analyzer">Analyzer</NavLink>
     </nav>
   </header>
 );
