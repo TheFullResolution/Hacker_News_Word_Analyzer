@@ -8,9 +8,9 @@ const hackernews = firebase.initializeApp(
   'hackernews'
 );
 
-export function TitleFetch() {
-  return new Promise(function(resolve, reject) {
-    var ref = hackernews.database().ref('v0/topstories');
+export function ListFetch(folder) {
+  return new Promise((resolve, reject) => {
+    var ref = hackernews.database().ref(`v0/${folder}`);
     ref.once('value').then(
       snapshot => {
         resolve(snapshot.val());
@@ -23,7 +23,7 @@ export function TitleFetch() {
 }
 
 export function ItemFetch(id) {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     var ref = hackernews.database().ref(`v0/item/${id}`);
     ref.once('value').then(
       snapshot => {

@@ -38,6 +38,7 @@ module.exports = {
       Common: resolve(__dirname, '../src/Common/'),
       Page1: resolve(__dirname, '../src/Page1/'),
       Page2: resolve(__dirname, '../src/Page2/'),
+      Analyzer: resolve(__dirname, '../src/Analyzer/'),
       assets: resolve(__dirname, '../assets/'),
       scss: resolve(__dirname, '../scss/'),
     }

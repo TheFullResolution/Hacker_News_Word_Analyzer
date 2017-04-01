@@ -1,10 +1,12 @@
 import React from 'react';
 
-import style from 'scss/components/Page1.scss';
+import style from 'scss/components/Page2.scss';
 
 import { dropdowntext } from 'Page2/Page2Text';
-import { Analyzer } from 'Page2/Analyzer/analyzer';
+import { Analyzer } from 'Analyzer/analyzer';
 import DropDownList from 'Page2/components/DropDownList';
+import AnalyzeButton from 'Page2/components/AnalyzeButton';
+import Top10 from 'Page2/components/Top10';
 
 export default class Page2Container extends React.Component {
   constructor(props) {
@@ -12,7 +14,9 @@ export default class Page2Container extends React.Component {
     this.state = {
       info: '',
       value: '',
-      ready: false
+      ready: false,
+      processing: false,
+      top10: []
     };
     this.dropdown = dropdowntext;
     this.optionUpdate = this.optionUpdate.bind(this);
@@ -20,7 +24,19 @@ export default class Page2Container extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    Analyzer(this.state.value);
+    this.setState(() => {
+      return {
+        processing: true
+      };
+    });
+    Analyzer(this.state.value).then(result => {
+      this.setState(() => {
+        return {
+          processing: false,
+          top10: result
+        };
+      });
+    });
   }
   optionUpdate(value) {
     const { options } = this.dropdown;
@@ -36,21 +52,8 @@ export default class Page2Container extends React.Component {
     });
   }
   render() {
-    const { ready, info } = this.state;
-    let submitButton, infoArea;
-    if (!ready) {
-      submitButton = (
-        <button type="submit" className="button" disabled>
-          Analyze!
-        </button>
-      );
-    } else {
-      submitButton = (
-        <button type="submit" className="button">
-          Analyze!
-        </button>
-      );
-    }
+    const { ready, info, processing, top10 } = this.state;
+    let infoArea;
     if (info) {
       infoArea = (
         <div>
@@ -68,7 +71,8 @@ export default class Page2Container extends React.Component {
             optionUpdate={this.optionUpdate}
           />
           {infoArea}
-          {submitButton}
+          <AnalyzeButton ready={ready} processing={processing} />
+          <Top10 top10={top10} />
         </form>
       </div>
     );

@@ -11,15 +11,22 @@ export const dropdowntext = {
       value: 'option2',
       option: 'Last Week Titles',
       info: 'Top 10 most occurring words in the titles of exactly the last week',
-      ready: true
+      ready: false
     },
     {
       value: 'option3',
       option: 'Mega Search',
       info: 'Top 10 most occurring words in the last 600 stories',
       ready: false
+    },
+    {
+      value: 'option4',
+      option: 'Top List Search',
+      info: 'Top 10 most occurring words in the titles of top 500 stories',
+      ready: true
     }
   ]
 };
 
-export const OPTION2 = 'option2';
+
+export const OPTION4 = 'option4';

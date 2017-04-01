@@ -10,30 +10,35 @@ html {
 }
 
 :global {
-  .button {
-      color: black;
-      font-size: 15px;
-      font-weight: bold;
-      padding: 2px;
-      text-transform: uppercase;
-      border: 2px solid transparent;
-      font-family: Verdana, Geneva, sans-serif;
-      background-color: $orange;
-        transition: border ease-in-out 200ms;
-      &:focus,
-      &:hover {
-          border: 2px solid black;
-          cursor: pointer;
-      }
-      &:hover:disabled,
-      &:disabled {
-        opacity: 0.5;
+    .button {
+        color: black;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 2px;
+        text-transform: uppercase;
         border: 2px solid transparent;
-        background-color: $grey;
-        cursor: not-allowed;
-      }
-  }
-  .warning {
-    color: $orange;
-  }
+        font-family: Verdana, Geneva, sans-serif;
+        background-color: $orange;
+        transition: border ease-in-out 200ms;
+
+        &:focus,
+        &:hover {
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        &:disabled,
+        &:hover:disabled {
+            opacity: 0.5;
+            border: 2px solid transparent;
+            background-color: $grey;
+            cursor: not-allowed;
+        }
+    }
+
+    .warning {
+        color: $orange;
+    }
+
+
 }

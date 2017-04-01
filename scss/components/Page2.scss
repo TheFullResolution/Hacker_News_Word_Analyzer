@@ -1,5 +1,7 @@
 @import "../shared";
-@import "../variables"
+@import "../variables";
+
 .content {
     composes: commonContent;
+    text-align: center;
 }
