@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BabiliPlugin = require('babili-webpack-plugin');
+
 module.exports = {
   entry: {
     main: resolve(__dirname, '../src'),
@@ -14,7 +14,7 @@ module.exports = {
   output: {
     filename: '[name].[chunkhash].js',
     path: resolve(__dirname, '../dist'),
-    publicPath: '/'
+    publicPath: ''
   },
   module: {
     rules: [
@@ -83,16 +83,17 @@ module.exports = {
         }
       }
     }),
-    new BabiliPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin('app.css')
   ],
  devtool: false,
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js'],
     alias: {
       Common: resolve(__dirname, '../src/Common/'),
       Page1: resolve(__dirname, '../src/Page1/'),
       Page2: resolve(__dirname, '../src/Page2/'),
+      Analyzer: resolve(__dirname, '../src/Analyzer/'),
       assets: resolve(__dirname, '../assets/'),
       scss: resolve(__dirname, '../scss/'),
     }

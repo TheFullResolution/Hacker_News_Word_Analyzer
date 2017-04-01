@@ -17,12 +17,12 @@ const Page1Content = () => (
       <source
         type="image/webp"
         sizes="(min-width: 810px) 800px, 100vw"
-        srcSet="/images/hackernews-small.webp 600w, /images/hackernews-medium.webp 800w, /images/hackernews-big.webp 1000w"
+        srcSet="images/hackernews-small.webp 600w, images/hackernews-medium.webp 800w, images/hackernews-big.webp 1000w"
       />
       <img
-        src="/images/hackernews-medium.jpg"
+        src="images/hackernews-medium.jpg"
         sizes="(min-width: 810px) 800px, 100vw"
-        srcSet="/images/hackernews-small.jpg 600w, /images/hackernews-medium.jpg 800w, /images/hackernews-big.jpg 1000w"
+        srcSet="images/hackernews-small.jpg 600w, images/hackernews-medium.jpg 800w, images/hackernews-big.jpg 1000w"
         alt="picture of the laptop"
       />
     </picture>

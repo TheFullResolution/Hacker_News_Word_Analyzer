@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const Header = () => (
   <header className={style.header}>
     <div className={style.heading}>
-      <img src="/favicon-192.png" alt="hacer news logo" />
+      <img src="favicon-192.png" alt="hacer news logo" />
       <h1>Hacker News Word Analyzer</h1>
     </div>
     <nav className={style.navigation}>

@@ -1,4 +1,4 @@
-import moment from 'moment';
+
 import { ItemFetch } from './firebase';
 
 export function GetTitlesList(list) {
@@ -25,23 +25,23 @@ export function GetTitlesList(list) {
 
 
 
-export function GetThisWeekList(list) {
-  return new Promise(function(resolve) {
-    const filteredPromises = list.map(item => {
-      return ItemFetch(item).then(result => {
-        return {
-          time: result.time,
-          title: result.title
-        };
-      });
-    });
-    Promise.all(filteredPromises).then(function(results) {
-      const weekAgo = moment().subtract(7, 'days');
-
-      const filtered = results.filter(item => {
-        return weekAgo.isBefore(moment.unix(item.time));
-      });
-      resolve(filtered);
-    });
-  });
-}
+// export function GetThisWeekList(list) {
+//   return new Promise(function(resolve) {
+//     const filteredPromises = list.map(item => {
+//       return ItemFetch(item).then(result => {
+//         return {
+//           time: result.time,
+//           title: result.title
+//         };
+//       });
+//     });
+//     Promise.all(filteredPromises).then(function(results) {
+//       const weekAgo = moment().subtract(7, 'days');
+//
+//       const filtered = results.filter(item => {
+//         return weekAgo.isBefore(moment.unix(item.time));
+//       });
+//       resolve(filtered);
+//     });
+//   });
+// }
