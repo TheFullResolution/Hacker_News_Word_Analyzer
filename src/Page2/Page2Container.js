@@ -3,6 +3,7 @@ import React from 'react';
 import style from 'scss/components/Page1.scss';
 
 import { dropdowntext } from 'Page2/Page2Text';
+import { Analyzer } from 'Page2/Analyzer/analyzer';
 import DropDownList from 'Page2/components/DropDownList';
 
 export default class Page2Container extends React.Component {
@@ -19,6 +20,7 @@ export default class Page2Container extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    Analyzer(this.state.value);
   }
   optionUpdate(value) {
     const { options } = this.dropdown;
@@ -49,11 +51,13 @@ export default class Page2Container extends React.Component {
         </button>
       );
     }
-    if(info) {
-      infoArea = (<div>
-        <p>{info}</p>
-        {!ready && <p className="warning">This analysis is not ready yet</p>}
-      </div>);
+    if (info) {
+      infoArea = (
+        <div>
+          <p>{info}</p>
+          {!ready && <p className="warning">This analysis is not ready yet</p>}
+        </div>
+      );
     }
     return (
       <div className={style.content}>

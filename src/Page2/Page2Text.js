@@ -5,7 +5,7 @@ export const dropdowntext = {
       value: 'option1',
       option: 'Users and Titles',
       info: 'Top 10 most occurring words titles of the last 60 stories of users with at least 10.000 karma',
-      ready: true
+      ready: false
     },
     {
       value: 'option2',
@@ -21,3 +21,5 @@ export const dropdowntext = {
     }
   ]
 };
+
+export const OPTION2 = 'option2';
