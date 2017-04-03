@@ -1,3 +1,5 @@
+import { exclude_words } from 'Analyzer/functions/words_to_exclude';
+
 function TransformToWords(list) {
   return list
     .reduce(
@@ -11,6 +13,9 @@ function TransformToWords(list) {
     })
     .map(item => {
       return item.toLowerCase();
+    })
+    .filter(item => {
+      return !exclude_words.includes(item);
     });
 }
 
