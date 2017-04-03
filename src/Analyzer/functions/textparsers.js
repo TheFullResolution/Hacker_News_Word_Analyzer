@@ -6,11 +6,11 @@ function TransformToWords(list) {
       },
       []
     )
+    .filter(item => {
+      return item && item.length > 1;
+    })
     .map(item => {
       return item.toLowerCase();
-    })
-    .filter(item => {
-      return item.length > 1;
     });
 }
 
